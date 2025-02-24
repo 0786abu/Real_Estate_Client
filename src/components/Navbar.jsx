@@ -273,7 +273,7 @@ const Navbar= () => {
                 }`}
             >
                 <ul className="flex flex-col space-y-2 p-2">
-                  {user?.role==="admin"?( <li onClick={handledrop} className="cursor-pointer hover:text-indigo-600"><Dashboard sx={{marginRight:"2px",fontSize:"25px"}}/><Link to="/admin/dashboard">Dashboard</Link></li>):(
+                  {user?.role==="admin"?( <li onClick={handledrop} className="cursor-pointer hover:text-indigo-600"><Dashboard sx={{marginRight:"2px",fontSize:"25px"}}/><Link to="/admin-dashboard">Admin Dashboard</Link></li>):(
                       <li onClick={handledrop} className="cursor-pointer hover:text-indigo-600"><Person sx={{marginRight:"2px",fontSize:"25px"}}/><Link to="/dashboard">Dashboard</Link></li>
                   )}
                     <li className="cursor-pointer hover:text-indigo-600" onClick={logout}><ExitToApp sx={{marginRight:"2px",fontSize:"25px"}}/>{actionloading ? "loading...":"Logout"}</li>
