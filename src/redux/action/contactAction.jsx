@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const Create_Contact = (contactt)=>async(dispatch)=>{
     dispatch(setCreateContactloading())
     try {
-        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/contact/create",contactt,{
+        const {data} = await axios.post("https://real-estate-server-two-olive.vercel.app/contact/create",contactt,{
             headers:{
                 "Content-Type":"application/json"
             }
@@ -22,7 +22,7 @@ export const Create_Contact = (contactt)=>async(dispatch)=>{
 export const fetch_Contacts = ()=>async(dispatch)=>{
     dispatch(setContactLoading())
     try {
-        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/contact/contacts",{
+        const {data} = await axios.get("https://real-estate-server-two-olive.vercel.app/contact/contacts",{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -38,7 +38,7 @@ export const fetch_Contacts = ()=>async(dispatch)=>{
 export const Delete_Contact = (id)=>async(dispatch)=>{
     dispatch(setDeleteContactLoading())
     try {
-        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/contact/delete/${id}`,{
+        const {data} = await axios.delete(`https://real-estate-server-two-olive.vercel.app/contact/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteContact(data.contact))
@@ -53,7 +53,7 @@ export const Delete_Contact = (id)=>async(dispatch)=>{
 export const Update_Contact = (id, contactt,close)=>async(dispatch)=>{
     dispatch(setUpdateContactLoading())
     try {
-        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/contact/update/${id}`,contactt,{
+        const {data} = await axios.put(`https://real-estate-server-two-olive.vercel.app/contact/update/${id}`,contactt,{
             headers:{
                 "Content-Type":"application/json"
             },

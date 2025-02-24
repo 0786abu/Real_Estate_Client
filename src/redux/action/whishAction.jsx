@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 export const Create_WhishItem = (item)=>async(dispatch)=>{
     dispatch(setCreateWhishLoading())
     try {
-        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/whish/create",item,{
+        const {data} = await axios.post("https://real-estate-server-two-olive.vercel.app/whish/create",item,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -23,7 +23,7 @@ export const Create_WhishItem = (item)=>async(dispatch)=>{
 export const My_WhishhItems = ()=>async(dispatch)=>{
     dispatch(setWhishLoading())
     try {
-        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/whish/mylists",{
+        const {data} = await axios.get("https://real-estate-server-two-olive.vercel.app/whish/mylists",{
             withCredentials:true
         });
         dispatch(setWhishList(data.whishLists));
@@ -34,7 +34,7 @@ export const My_WhishhItems = ()=>async(dispatch)=>{
 export const Delete_WhishItem = (id)=>async(dispatch)=>{
     dispatch(setDeleteWhishLoading())
     try {
-        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/whish/delete/${id}`,{
+        const {data} = await axios.delete(`https://real-estate-server-two-olive.vercel.app/whish/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteWhishItem(data.whishItem));

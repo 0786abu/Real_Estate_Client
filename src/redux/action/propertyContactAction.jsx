@@ -7,7 +7,7 @@ import { setError } from "../slice/userSlice";
 export const CreatePropertyContact = (id,dataa)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.post(`real-estate-server-two-olive.vercel.app/p_contact/create/${id}`,dataa,{
+        const {data} = await axios.post(`https://real-estate-server-two-olive.vercel.app/p_contact/create/${id}`,dataa,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -25,7 +25,7 @@ export const CreatePropertyContact = (id,dataa)=>async(dispatch)=>{
 export const Fetch_Agent_Contacts = ()=>async(dispatch)=>{
     dispatch(setContactLoading())
     try {
-        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/p_contact/agent_contacts",{
+        const {data} = await axios.get("https://real-estate-server-two-olive.vercel.app/p_contact/agent_contacts",{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -43,7 +43,7 @@ export const Fetch_Agent_Contacts = ()=>async(dispatch)=>{
 export const Fetch_Agent_Contact = (id)=>async(dispatch)=>{
     dispatch(setContactLoading())
     try {
-        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/p_contact/agent_contact/${id}`,{
+        const {data} = await axios.get(`https://real-estate-server-two-olive.vercel.app/p_contact/agent_contact/${id}`,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -62,7 +62,7 @@ export const Fetch_Agent_Contact = (id)=>async(dispatch)=>{
 export const Delete_Agent_Property_Contact = (id)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/p_contact/delete/${id}`,{
+        const {data} = await axios.delete(`https://real-estate-server-two-olive.vercel.app/p_contact/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeletePropertyContact(data.contact));
@@ -81,7 +81,7 @@ export const Delete_Agent_Property_Contact = (id)=>async(dispatch)=>{
 export const Delete_User_Property_Contact = (id)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/p_contact/delete/${id}`,{
+        const {data} = await axios.delete(`https://real-estate-server-two-olive.vercel.app/p_contact/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteUserDealer(data.contact));
@@ -101,7 +101,7 @@ export const Delete_User_Property_Contact = (id)=>async(dispatch)=>{
 export const Property_Dealerss = ()=>async(dispatch)=>{
     dispatch(setContactLoading())
     try {
-        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/p_contact/dealers",{
+        const {data} = await axios.get("https://real-estate-server-two-olive.vercel.app/p_contact/dealers",{
             withCredentials:true
         });
         dispatch(setPropertyDealers(data.dealers));
@@ -112,7 +112,7 @@ export const Property_Dealerss = ()=>async(dispatch)=>{
 export const Cancel_Toggle = (id)=>async(dispatch)=>{
     dispatch(setCancelLoading())
     try {
-        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/p_contact/canceltoggle/${id}`,{
+        const {data} = await axios.get(`https://real-estate-server-two-olive.vercel.app/p_contact/canceltoggle/${id}`,{
             withCredentials:true
         });
         dispatch(setCancelToggle(data.property));
@@ -127,7 +127,7 @@ export const Cancel_Toggle = (id)=>async(dispatch)=>{
 export const Confirm_Toffle = (id)=>async(dispatch)=>{
     dispatch(setConfirmLoading())
     try {
-        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/p_contact/confirm/${id}`,{
+        const {data} = await axios.get(`https://real-estate-server-two-olive.vercel.app/p_contact/confirm/${id}`,{
             withCredentials:true
         });
         dispatch(setConfirToggle(data.property));
@@ -143,7 +143,7 @@ export const Confirm_Toffle = (id)=>async(dispatch)=>{
 export const Rejetced_Toggle = (id)=>async(dispatch)=>{
     dispatch(setRejetctLoading())
     try {
-        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/p_contact/rejected/${id}`,{
+        const {data} = await axios.get(`https://real-estate-server-two-olive.vercel.app/p_contact/rejected/${id}`,{
             withCredentials:true
         });
         dispatch(setRejectedToggle(data.property));

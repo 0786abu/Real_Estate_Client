@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const Create_Review = (revieww)=>async(dispatch)=>{
     dispatch(setCreateReviewloading())
     try {
-        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/review/create",revieww,{
+        const {data} = await axios.post("https://real-estate-server-two-olive.vercel.app/review/create",revieww,{
             headers:{
                 "Content-Type":"application/json"
             }
@@ -22,7 +22,7 @@ export const Create_Review = (revieww)=>async(dispatch)=>{
 export const Fetch_Reviews = ()=>async(dispatch)=>{
     dispatch(setReviewLoading())
     try {
-        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/review/reviews",{
+        const {data} = await axios.get("https://real-estate-server-two-olive.vercel.app/review/reviews",{
             headers:{
                 "Content-Type":"application/json"
             }
@@ -37,7 +37,7 @@ export const Fetch_Reviews = ()=>async(dispatch)=>{
 export const Update_Review = (id, revieww,close)=>async(dispatch)=>{
     dispatch(setUpdateReviewLoading())
     try {
-        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/review/update/${id}`,revieww,{
+        const {data} = await axios.put(`https://real-estate-server-two-olive.vercel.app/review/update/${id}`,revieww,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -57,7 +57,7 @@ export const Update_Review = (id, revieww,close)=>async(dispatch)=>{
 export const Delete_Review = (id)=>async(dispatch)=>{
     dispatch(setDeleteReviewLoading())
     try {
-        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/review/delete/${id}`,{
+        const {data} = await axios.delete(`https://real-estate-server-two-olive.vercel.app/review/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteReview(data.review));
