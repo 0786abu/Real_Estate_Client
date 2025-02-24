@@ -57,7 +57,7 @@ const Services = () => {
           <h2 className=" px-6 py-1 bg-[#F5DFDC] text-[#ff5a3c] inline-block rounded-full mb-4">Our Services</h2>
           <h2 className=" text-5xl font-extrabold font-sans">Our Core Services</h2>
           </div>
-          <div className="cards-wrapper w-6xl mt-10 mx-auto grid gap-4 p-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="cards-wrapper max-w-6xl mt-10 mx-auto grid gap-4 p-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
             {services?.map((serv,index)=>{
               const Icon = MuiIcons[serv.service_icon]
               return(
