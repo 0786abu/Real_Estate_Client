@@ -1,6 +1,6 @@
 import Agents from "./home/Agents"
 import Blogs from "./home/Blogs"
-import Featured_listing from "./home/featured_listing"
+import Featured_listing from "./home/Featured_listing"
 import Hero_Section from "./home/Hero_Section"
 import Property_By_Location from "./home/Property_by_location"
 import Services from "./home/Services"
