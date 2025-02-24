@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const Create_Service = (servicee)=>async(dispatch)=>{
     dispatch(setCreateServiceLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/service/create",servicee,{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/service/create",servicee,{
             withCredentials:true,
             headers:{
                 "Content-Type":"application/json"
@@ -22,7 +22,7 @@ export const Create_Service = (servicee)=>async(dispatch)=>{
 export const Fetch_Services = ()=>async(dispatch)=>{
     dispatch(setServiceLoading())
     try {
-        const {data} = await axios.get("http://localhost:6600/service/services",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/service/services",{
             withCredentials:true,
             headers:{
                 "Content-Type":"application/json"
@@ -36,7 +36,7 @@ export const Fetch_Services = ()=>async(dispatch)=>{
 export const Delete_Service = (id)=>async(dispatch)=>{
     dispatch(setDeleteServiceLoading())
     try {
-        const {data} = await axios.delete(`http://localhost:6600/service/delete/${id}`,{
+        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/service/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteService(data.service));
@@ -50,7 +50,7 @@ export const Delete_Service = (id)=>async(dispatch)=>{
 export const Update_Service = (id,servicee,close)=>async(dispatch)=>{
     dispatch(setServiceUpdateLoading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/service/update/${id}`,servicee,{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/service/update/${id}`,servicee,{
             withCredentials:true
         });
         dispatch(setUpdateService(data.service));

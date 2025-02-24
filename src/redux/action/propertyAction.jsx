@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const Create_Propertyy = (property)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/property/create",property,{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/property/create",property,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -32,7 +32,7 @@ export const Fetch_Properties = (amenities,category,property_type)=>async(dispat
         if(amenities) queryParams.append("amenities", amenities);
         if(category) queryParams.append("category", category);
         if(property_type) queryParams.append("property_type", property_type);
-        const {data} = await axios.get(`http://localhost:6600/property/properties?${queryParams.toString()}`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/property/properties?${queryParams.toString()}`,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -50,7 +50,7 @@ export const Fetch_Properties = (amenities,category,property_type)=>async(dispat
 export const Fetch_Property = (id)=>async(dispatch)=>{
     dispatch(setPropertyLoading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/property/property/${id}`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/property/property/${id}`,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -68,7 +68,7 @@ export const Fetch_Property = (id)=>async(dispatch)=>{
 export const Fetch_Features_Property = ()=>async(dispatch)=>{
     dispatch(setFeat_p_Loading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/property/featres_properties`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/property/featres_properties`,{
             withCredentials:true
         });
         dispatch(setfeaturesProperties(data.features));
@@ -83,7 +83,7 @@ export const Fetch_Features_Property = ()=>async(dispatch)=>{
 export const Fetch_My_Properties = ()=>async(dispatch)=>{
     dispatch(setPropertyLoading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/property/my_properties`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/property/my_properties`,{
             withCredentials:true
         });
         dispatch(setMyProperties(data.my_properties));
@@ -99,7 +99,7 @@ export const Fetch_My_Properties = ()=>async(dispatch)=>{
 export const Create_Ratingg = (property_id,rating)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/property/rating/${property_id}`,rating,{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/property/rating/${property_id}`,rating,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -122,7 +122,7 @@ export const Create_Ratingg = (property_id,rating)=>async(dispatch)=>{
 export const Update_Propertyy = (property_id,property,navigate)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/property/update_property/${property_id}`,property,{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/property/update_property/${property_id}`,property,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -144,7 +144,7 @@ export const Update_Propertyy = (property_id,property,navigate)=>async(dispatch)
 export const Delete_Property = (property_id)=>async(dispatch)=>{
     dispatch(setCreateLoading())
     try {
-        const {data} = await axios.delete(`http://localhost:6600/property/delete/${property_id}`,{
+        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/property/delete/${property_id}`,{
             withCredentials:true
         });
         dispatch(setDelete(data.property))
@@ -163,7 +163,7 @@ export const Delete_Property = (property_id)=>async(dispatch)=>{
 export const Featured_Toggle = (property_id,close)=>async(dispatch)=>{
     dispatch(setFeatToggleLoading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/property/featured/${property_id}`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/property/featured/${property_id}`,{
             withCredentials:true
         });
         dispatch(setFeaturePropertyToggle(data.property))

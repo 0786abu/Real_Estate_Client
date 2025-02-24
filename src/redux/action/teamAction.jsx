@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const Create_Team_member = (deta,navigate)=>async(dispatch)=>{
     dispatch(setTeamLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/team/create",deta,{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/team/create",deta,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -23,7 +23,7 @@ export const Create_Team_member = (deta,navigate)=>async(dispatch)=>{
 export const Fetch_Team_Members = ()=>async(dispatch)=>{
     dispatch(setLoading())
     try {
-        const {data} = await axios.get("http://localhost:6600/team/teams",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/team/teams",{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -37,7 +37,7 @@ export const Fetch_Team_Members = ()=>async(dispatch)=>{
 export const Update_Team_Member = (id,deta,close)=>async(dispatch)=>{
     dispatch(setUpdateloading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/team/update/${id}`,deta,{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/team/update/${id}`,deta,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -54,7 +54,7 @@ export const Update_Team_Member = (id,deta,close)=>async(dispatch)=>{
 export const Delete_Team_Member = (id,)=>async(dispatch)=>{
     dispatch(setDeleteloading())
     try {
-        const {data} = await axios.delete(`http://localhost:6600/team/delete/${id}`,{
+        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/team/delete/${id}`,{
             headers:{
                 "Content-Type":"application/json"
             },

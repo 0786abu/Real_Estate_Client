@@ -5,7 +5,7 @@ import { setCityLoading, setCreateCityloading, setDeleteCity, setDeleteCityLoadi
 export const Create_FeaturedCity = (revieww,navigate)=>async(dispatch)=>{
     dispatch(setCreateCityloading())
     try {
-        const {data} = await axios.post("http://localhost:6600/review/city/create",revieww,{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/review/city/create",revieww,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -24,7 +24,7 @@ export const Create_FeaturedCity = (revieww,navigate)=>async(dispatch)=>{
 export const Fetch_FeatredCities = ()=>async(dispatch)=>{
     dispatch(setCityLoading())
     try {
-        const {data} = await axios.get("http://localhost:6600/review/city/cities");
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/review/city/cities");
         dispatch(setFeaturedCities(data.featureCities));
     } catch (error) {
         toast.error(error?.response?.data?.message || error.response?.data?.error)
@@ -35,7 +35,7 @@ export const Fetch_FeatredCities = ()=>async(dispatch)=>{
 export const Update_FeatiredCity = (id, revieww,close)=>async(dispatch)=>{
     dispatch(setUpdateCityLoading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/review/city/update/${id}`,revieww,{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/review/city/update/${id}`,revieww,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -55,7 +55,7 @@ export const Update_FeatiredCity = (id, revieww,close)=>async(dispatch)=>{
 export const Delete_FeaturedCity = (id)=>async(dispatch)=>{
     dispatch(setDeleteCityLoading())
     try {
-        const {data} = await axios.delete(`http://localhost:6600/review/city/delete/${id}`,{
+        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/review/city/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteCity(data.featureCity));

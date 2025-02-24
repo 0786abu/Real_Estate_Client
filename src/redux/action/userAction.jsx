@@ -7,7 +7,7 @@ import { setDeleteUser, setDeleteUserLoading } from "../slice/adminSlice";
 export const RegisterUser = (userData,navigate)=>async(dispatch)=>{
     dispatch(setActionLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/user/register",userData,{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/user/register",userData,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -33,7 +33,7 @@ export const RegisterUser = (userData,navigate)=>async(dispatch)=>{
 export const otpVerifyy = (otp,navigate)=>async(dispatch)=>{
     dispatch(setActionLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/user/verifyotp",{otp},{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/user/verifyotp",{otp},{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -60,7 +60,7 @@ export const otpVerifyy = (otp,navigate)=>async(dispatch)=>{
 export const ResendEmail = (email,timer)=>async(dispatch)=>{
     dispatch(setResendLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/user/resend",{email},{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/user/resend",{email},{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -84,7 +84,7 @@ export const ResendEmail = (email,timer)=>async(dispatch)=>{
 export const LogoutUser = (navigate)=>async(dispatch)=>{
     dispatch(setActionLoading())
     try {
-        const {data} = await axios.get("http://localhost:6600/user/logout",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/user/logout",{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -105,7 +105,7 @@ export const LogoutUser = (navigate)=>async(dispatch)=>{
 export const LoginUser = (userData,navigate)=>async(dispatch)=>{
     dispatch(setActionLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/user/login",userData,{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/user/login",userData,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -132,7 +132,7 @@ export const LoginUser = (userData,navigate)=>async(dispatch)=>{
 export const Update_Profile = (updatedata,close)=>async(dispatch)=>{
     dispatch(setUpdateLoading())
     try {
-        const {data} = await axios.put("http://localhost:6600/user/updateprofile",updatedata,{
+        const {data} = await axios.put("real-estate-server-two-olive.vercel.app/user/updateprofile",updatedata,{
             withCredentials:true,
             headers:{
                 "Content-Type":"application/json"
@@ -158,7 +158,7 @@ export const Update_Profile = (updatedata,close)=>async(dispatch)=>{
 export const Change_Passwordd = (dataa)=>async(dispatch)=>{
     dispatch(setUpdateLoading())
     try {
-        const {data} = await axios.put("http://localhost:6600/user/changepassword",dataa,{
+        const {data} = await axios.put("real-estate-server-two-olive.vercel.app/user/changepassword",dataa,{
             withCredentials:true,
             headers:{
                 "Content-Type":"application/json"
@@ -184,7 +184,7 @@ export const Change_Passwordd = (dataa)=>async(dispatch)=>{
 export const Forgot_Password = (email)=>async(dispatch)=>{
     dispatch(setUpdateLoading())
     try {
-        const {data} = await axios.post("http://localhost:6600/user/forgot",{email},{
+        const {data} = await axios.post("real-estate-server-two-olive.vercel.app/user/forgot",{email},{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -205,7 +205,7 @@ export const Forgot_Password = (email)=>async(dispatch)=>{
 export const Reset_Password = (newPassword,token)=>async(dispatch)=>{
     dispatch(setUpdateLoading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/user/reset-password/${token}`,{newPassword},{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/user/reset-password/${token}`,{newPassword},{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -232,7 +232,7 @@ export const Fetch_Agents = (agent_type)=>async(dispatch)=>{
     try {
         const queryParams = new URLSearchParams();
         if(agent_type) queryParams.append("agent_type", agent_type)
-        const {data} = await axios.get(`http://localhost:6600/user/fetch_agents?${queryParams.toString()}`);
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/user/fetch_agents?${queryParams.toString()}`);
         dispatch(setAgents(data.agents));
     } catch (error) {
         dispatch(setError(error.response?.data?.message || error?.response?.data?.error))
@@ -241,7 +241,7 @@ export const Fetch_Agents = (agent_type)=>async(dispatch)=>{
 export const Fetch_Agent = (id)=>async(dispatch)=>{
     dispatch(setAgentLoading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/user/fetch_agent/${id}`);
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/user/fetch_agent/${id}`);
         dispatch(setAgent(data.agent));
     } catch (error) {
         dispatch(setError(error.response?.data?.message || error?.response?.data?.error))
@@ -251,7 +251,7 @@ export const Fetch_Agent = (id)=>async(dispatch)=>{
 export const User_Delete = (id)=>async(dispatch)=>{
     dispatch(setDeleteUserLoading())
     try {
-        const {data} = await axios.delete(`http://localhost:6600/user/delete/${id}`,{
+        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/user/delete/${id}`,{
             withCredentials: true
         });
         dispatch(setDeleteUser(data.user));

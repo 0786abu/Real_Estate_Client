@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 export const CreateSellerContact = (id,dataa)=>async(dispatch)=>{
     dispatch(setCreateLoader())
     try {
-        const {data} = await axios.post(`http://localhost:6600/seller/create/${id}`,dataa,{
+        const {data} = await axios.post(`real-estate-server-two-olive.vercel.app/seller/create/${id}`,dataa,{
             headers:{
                 "Content-Type":"application/json"
             },
@@ -24,7 +24,7 @@ export const CreateSellerContact = (id,dataa)=>async(dispatch)=>{
 export const AgentSellersContacts = ()=>async(dispatch)=>{
     dispatch(setSellerLoading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/seller/a_sellers`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/seller/a_sellers`,{
             withCredentials:true
         });
         dispatch(setSellers(data.sellerContacts));
@@ -35,7 +35,7 @@ export const AgentSellersContacts = ()=>async(dispatch)=>{
 export const UserSellersContacts = ()=>async(dispatch)=>{
     dispatch(setSellerLoading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/seller/u_sellers`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/seller/u_sellers`,{
             withCredentials:true
         });
         dispatch(setSellers(data.sellerContacts));
@@ -47,7 +47,7 @@ export const UserSellersContacts = ()=>async(dispatch)=>{
 export const DeleteSellerContact = (id)=>async(dispatch)=>{
     dispatch(setCreateLoader())
     try {
-        const {data} = await axios.delete(`http://localhost:6600/seller/delete/${id}`,{
+        const {data} = await axios.delete(`real-estate-server-two-olive.vercel.app/seller/delete/${id}`,{
             withCredentials:true
         });
         dispatch(setDeleteContact(data.sellerContact));
@@ -61,7 +61,7 @@ export const DeleteSellerContact = (id)=>async(dispatch)=>{
 export const Toggle_Cancel = (id)=>async(dispatch)=>{
     dispatch(setToggleloading())
     try {
-        const {data} = await axios.get(`http://localhost:6600/seller/cancel/${id}`,{
+        const {data} = await axios.get(`real-estate-server-two-olive.vercel.app/seller/cancel/${id}`,{
             withCredentials:true
         });
         dispatch(CancelToggle(data.seller));

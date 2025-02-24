@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 export const Fetch_All_Users = ()=>async(dispatch)=>{
     dispatch(setuserloading())
     try {
-        const {data} = await axios.get("http://localhost:6600/user/allusers",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/user/allusers",{
             withCredentials:true
         });
         dispatch(setAllUsers(data.users));
@@ -18,7 +18,7 @@ export const Fetch_All_Users = ()=>async(dispatch)=>{
 export const Fetch_All_Properties_Admin = ()=>async(dispatch)=>{
     dispatch(setAllPropertyLoading())
     try {
-        const {data} = await axios.get("http://localhost:6600/property/admin-properties",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/property/admin-properties",{
             withCredentials:true
         });
         dispatch(setAllProperties(data.properties));
@@ -31,7 +31,7 @@ export const Fetch_All_Properties_Admin = ()=>async(dispatch)=>{
 export const Fetch_All_Buyers = ()=>async(dispatch)=>{
     dispatch(setbuyerloading())
     try {
-        const {data} = await axios.get("http://localhost:6600/p_contact/allbuyers",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/p_contact/allbuyers",{
             withCredentials:true
         });
         dispatch(setAllBuyers(data.buyers));
@@ -44,7 +44,7 @@ export const Fetch_All_Buyers = ()=>async(dispatch)=>{
 export const Fetch_All_Sellers = ()=>async(dispatch)=>{
     dispatch(setsellerloading())
     try {
-        const {data} = await axios.get("http://localhost:6600/seller/allsellers",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/seller/allsellers",{
             withCredentials:true
         });
         dispatch(setAllSellers(data.sellers));
@@ -57,7 +57,7 @@ export const Fetch_All_Sellers = ()=>async(dispatch)=>{
 export const Fetch_All_WhishLists = ()=>async(dispatch)=>{
     dispatch(setWhishLoadingg())
     try {
-        const {data} = await axios.get("http://localhost:6600/whish/whishlists",{
+        const {data} = await axios.get("real-estate-server-two-olive.vercel.app/whish/whishlists",{
             withCredentials:true
         });
         dispatch(setAllWhishLists(data.whishLists));
@@ -70,7 +70,7 @@ export const Fetch_All_WhishLists = ()=>async(dispatch)=>{
 export const Admin_Update_Users = (id,role,close)=>async(dispatch)=>{
     dispatch(setAdminUpdateLoading())
     try {
-        const {data} = await axios.put(`http://localhost:6600/user/updateuser/${id}`,{role},{
+        const {data} = await axios.put(`real-estate-server-two-olive.vercel.app/user/updateuser/${id}`,{role},{
             withCredentials:true,
             headers: {
                 'Content-Type': 'application/json'
